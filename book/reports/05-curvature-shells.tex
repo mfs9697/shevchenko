@@ -22,12 +22,11 @@
 
 Далі досліджено вплив кривизни на напружено-деформований стан конструкції. Для тієї самої розрахункової області задано $k_1=k_2=0.1$. Наявність кривизни підвищує загальну жорсткість конструкції, тому за однакових зовнішнього навантаження та умов закріплення максимальний прогин пологої оболонки є меншим, ніж прогин плоского аналога.
 
-\begin{figure}[htbp]
-  \centering
+\begin{center}
   \begin{tikzpicture}
     \begin{axis}[
-      width=0.68\textwidth,
-      height=0.43\textwidth,
+      width=0.62\textwidth,
+      height=0.38\textwidth,
       xmin=0,xmax=1,
       ymin=0,ymax=17.5,
       xlabel={$x/a$},
@@ -39,20 +38,20 @@
       tick label style={font=\small},
       label style={font=\small},
       samples=120,
-      domain=0:1,
-      every axis plot/.append style={black,thick,no marks}
+      domain=0:1
     ]
-      \addplot {16.85*(sin(deg(pi*x)))^1.72};
-      \addplot {16.35*(sin(deg(pi*x)))^1.68};
-      \node[font=\small] at (axis cs:0.50,16.95) {1};
-      \node[font=\small] at (axis cs:0.50,15.95) {2};
+      \addplot[black,thick,no marks] {16.85*(sin(deg(pi*x)))^1.72};
+      \addplot[black,thin,no marks] {16.35*(sin(deg(pi*x)))^1.68};
+      \node[font=\small] at (axis cs:0.50,17.05) {1};
+      \node[font=\small] at (axis cs:0.50,15.85) {2};
     \end{axis}
   \end{tikzpicture}
-  \caption{Розподіл безрозмірного прогину $w^{*}=wE/q_0$: 1 --- пластина, $k_1=k_2=0$; 2 --- полога оболонка, $k_1=k_2=0.1$.}
-\end{figure}
+  \captionof{figure}{Розподіл безрозмірного прогину $w^{*}=wE/q_0$: 1 --- пластина, $k_1=k_2=0$; 2 --- полога оболонка, $k_1=k_2=0.1$.}
+\end{center}
 
 Отже, розроблений підхід і створений програмний комплекс є надійним інструментом для інженерного аналізу оболонок складної геометрії. Вони дають змогу коректно враховувати вплив кривизни, ортотропії матеріалу та форми області в плані на напружено-деформований стан конструкції.
 
+\renewcommand{\refname}{Список використаних джерел}
 \begin{thebibliography}{9}
 \bibitem{curvature:grigorenko2016}
 A.~Ya. Grigorenko, W.~H. Müller, Ya.~M. Grigorenko, and G.~G. Vlaikov,
