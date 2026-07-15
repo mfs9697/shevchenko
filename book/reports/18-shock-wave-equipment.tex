@@ -1,0 +1,45 @@
+% Edited conversion of source pp. 34--35.
+% Original photographs are decoded from repository-safe base64 assets.
+\directlua{
+  dofile("scripts/base64_asset.lua")
+  decode_base64_file("figures/18-equipment/water-tank.jpg.b64", "figures/18-equipment/water-tank.generated.jpg")
+  decode_base64_file("figures/18-equipment/shock-tube.jpg.b64", "figures/18-equipment/shock-tube.generated.jpg")
+}
+
+\ReportHeading
+  {Про устаткування в Інституті механіки НАН України для дослідження конструкцій спеціальної техніки під дією ударних хвиль у воді й повітрі}
+  {В.~А. Максимюк, Є.~А. Сторожук}
+  {Інститут механіки ім. С.~П. Тимошенка НАН України}
+  {}
+
+В Інституті механіки ім. С.~П. Тимошенка НАН України збереглося у робочому стані та використовується унікальне експериментальне устаткування, створене майже пів століття тому: вертикальний бак для дослідження дії ударних хвиль на конструкції у воді та ударна труба діафрагмового типу.
+
+\begin{wrapfigure}{r}{0.34\textwidth}
+  \vspace{-0.6\baselineskip}
+  \centering
+  \includegraphics[width=0.31\textwidth]{figures/18-equipment/water-tank.generated.jpg}
+  \caption{Бак із водою.}
+  \vspace{-0.5\baselineskip}
+\end{wrapfigure}
+
+Вертикальний бак заввишки 3~м і діаметром 3.2~м розташовано у заглибленому підвальному приміщенні. На середині висоти влаштовано прозоре вікно для спостережень. Водяна арматура та помпа забезпечують наповнення бака й відкачування води, а навколо верхньої частини розташовано огороджений робочий майданчик (рис.~1). Раніше ударну хвилю у воді формували дротиками, які вибухали внаслідок розряду високовольтних конденсаторів~\cite{equipment:anikiev1999}. Нещодавно бак використовували для визначення шару води, достатнього для сповільнення кулі до прийнятної швидкості.
+
+Ударна труба завдовжки 4.75~м має прямокутний внутрішній переріз $140\times210$~мм і чистоту внутрішньої поверхні 5-го класу. Вона формує ступінчасту ударну хвилю з крутим фронтом і сталим надлишковим тиском до 100~кПа поза фронтом. Тривалість імпульсу становить приблизно 8~мс, а час наростання тиску у фронті --- близько 40~мкс. Установку застосовують для визначення залежності власних частот тонкостінних конструкцій від тиску, що дає змогу оцінювати їх стійкість без руйнування~\cite{equipment:anikiev2013}.
+
+\begin{center}
+  \includegraphics[width=0.84\textwidth]{figures/18-equipment/shock-tube.generated.jpg}
+  \captionof{figure}{Ударна труба з допоміжним обладнанням.}
+\end{center}
+
+\renewcommand{\refname}{Література}
+\begin{thebibliography}{9}
+\bibitem{equipment:anikiev1999}
+I.~I. Anik'ev, P.~Z. Lugovoi, and E.~A. Sushchenko,
+``Experimental studies of the protective properties of flat shock-wave shields in water,''
+\emph{International Applied Mechanics}, vol.~35, no.~3, pp.~312--314, 1999.
+
+\bibitem{equipment:anikiev2013}
+I.~I. Anik'ev, V.~A. Maksimyuk, M.~I. Mikhailova, and E.~A. Sushchenko,
+``Nonstationary behaviour of a cantilever-rod system under nearly critical loads,''
+\emph{International Applied Mechanics}, vol.~49, no.~5, pp.~570--576, 2013.
+\end{thebibliography}
