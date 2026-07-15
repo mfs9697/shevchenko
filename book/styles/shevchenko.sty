@@ -14,6 +14,7 @@
 \RequirePackage{ragged2e}
 \RequirePackage{graphicx}
 \RequirePackage{wrapfig}
+\RequirePackage{caption}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -25,6 +26,8 @@
 \renewcommand{\theequation}{\arabic{equation}}
 \newcounter{report}
 \renewcommand{\theHequation}{\arabic{report}.\arabic{equation}}
+\renewcommand{\theHfigure}{\arabic{report}.\arabic{figure}}
+\renewcommand{\theHtable}{\arabic{report}.\arabic{table}}
 \setcounter{secnumdepth}{0}
 \emergencystretch=2em
 
@@ -36,6 +39,8 @@
   \clearpage
   \refstepcounter{report}%
   \setcounter{equation}{0}%
+  \setcounter{figure}{0}%
+  \setcounter{table}{0}%
   \phantomsection
   \addcontentsline{toc}{section}{#1}%
   \begin{center}
