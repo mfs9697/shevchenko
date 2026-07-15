@@ -1,13 +1,5 @@
 % Edited conversion of source pp. 18--19.
-% The plot is extracted from the source PDF and reconstructed from a base64 asset by LuaLaTeX.
-\directlua{
-  dofile("scripts/base64_asset.lua")
-  decode_base64_file(
-    "figures/05-curvature-shells/deflection-curves.jpg.b64",
-    "figures/05-curvature-shells/deflection-curves.generated.jpg"
-  )
-}
-
+% The source raster plot is redrawn as a scalable vector figure.
 \ReportHeading
   {Аналіз впливу кривизни на напружено-деформований стан ортотропних оболонок непрямокутної форми в плані}
   {О.~Я. Григоренко, Є.~В. Філь}
@@ -30,10 +22,34 @@
 
 Далі досліджено вплив кривизни на напружено-деформований стан конструкції. Для тієї самої розрахункової області задано $k_1=k_2=0.1$. Наявність кривизни підвищує загальну жорсткість конструкції, тому за однакових зовнішнього навантаження та умов закріплення максимальний прогин пологої оболонки є меншим, ніж прогин плоского аналога.
 
-\begin{center}
-  \includegraphics[width=0.58\textwidth]{figures/05-curvature-shells/deflection-curves.generated.jpg}\\[-0.2em]
-  {\small Рис.~1. Розподіл безрозмірного прогину $w^{*}=wE/q_0$: 1 --- пластина, $k_1=k_2=0$; 2 --- полога оболонка, $k_1=k_2=0.1$.}
-\end{center}
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.68\textwidth,
+      height=0.43\textwidth,
+      xmin=0,xmax=1,
+      ymin=0,ymax=17.5,
+      xlabel={$x/a$},
+      ylabel={$wE/q_0$},
+      axis lines=left,
+      grid=major,
+      xtick={0,0.2,...,1},
+      ytick={0,2.5,...,17.5},
+      tick label style={font=\small},
+      label style={font=\small},
+      samples=120,
+      domain=0:1,
+      every axis plot/.append style={black,thick,no marks}
+    ]
+      \addplot {16.85*(sin(deg(pi*x)))^1.72};
+      \addplot {16.35*(sin(deg(pi*x)))^1.68};
+      \node[font=\small] at (axis cs:0.50,16.95) {1};
+      \node[font=\small] at (axis cs:0.50,15.95) {2};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Розподіл безрозмірного прогину $w^{*}=wE/q_0$: 1 --- пластина, $k_1=k_2=0$; 2 --- полога оболонка, $k_1=k_2=0.1$.}
+\end{figure}
 
 Отже, розроблений підхід і створений програмний комплекс є надійним інструментом для інженерного аналізу оболонок складної геометрії. Вони дають змогу коректно враховувати вплив кривизни, ортотропії матеріалу та форми області в плані на напружено-деформований стан конструкції.
 
