@@ -1,0 +1,27 @@
+# LaTeX build products
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Generated PDFs are built by CI unless explicitly released
+book/*.pdf
+pilot/**/*.pdf
+
+# Local source material; do not publish without permission
+source/original/*
+!source/original/.gitkeep
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
