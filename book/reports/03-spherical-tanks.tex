@@ -1,0 +1,33 @@
+% Edited conversion of source p. 16.
+\ReportHeading
+  {Stability of Fluid Motion in Partially Filled Spherical Tanks with Horizontal Baffles under Combined Excitation}
+  {N.~Choudhary\textsuperscript{1}, K.~G.~Degtyarev\textsuperscript{2,3}, A.~S.~Kolodiazhny\textsuperscript{2}, D.~V.~Kriutchenko\textsuperscript{2}, O.~M.~Sierikova\textsuperscript{4}, E.~A.~Strelnikova\textsuperscript{2,3}}
+  {\textsuperscript{1}School of Artificial Intelligence, Bennett University, Greater Noida, Uttar Pradesh, India\\
+   \textsuperscript{2}A.~Pidhornyi Institute of Power Machines and Systems, NAS of Ukraine\\
+   \textsuperscript{3}V.~N. Karazin Kharkiv National University, Kharkiv, Ukraine\\
+   \textsuperscript{4}National Scientific Center ``Hon. Prof. M.~S. Bokarius Forensic Science Institute,'' Ministry of Justice of Ukraine}
+  {}
+
+The objective of this study is to develop advanced numerical methods for investigating the stability of fluid motion in partially filled spherical tanks equipped with horizontal baffles. Such tanks are important components of modern engineering systems: they are used to store potable water and hazardous substances and serve as fuel tanks in launch vehicles. Experimental evaluation of their strength and dynamic behavior is costly and may involve substantial safety risks, which motivates reliable virtual testing based on efficient computational methods.
+
+The development of robust numerical tools for analyzing fluid oscillations and stability in tanks whose free-surface radius varies with the filling level therefore remains an important problem. The present study combines potential theory, the boundary element method, the prescribed-normal-modes approach, and numerical procedures for systems of differential equations~\cite{tank:gnitko2022}. The fluid is assumed to be ideal and incompressible, and its motion is taken to be irrotational.
+
+Spectral boundary-value problems are formulated and solved to determine the natural frequencies and mode shapes of fluid oscillations in spherical tanks both without internal structures and with horizontal baffles containing openings of different diameters. These problems are reduced to systems of one-dimensional singular integral equations. The resulting natural modes are then used as basis functions in the analysis of forced fluid oscillations under combined vertical and horizontal excitation~\cite{tank:sierikova2022}.
+
+The velocity potential and free-surface elevation are represented by infinite series, and their convergence is examined. Determination of the fluid's dynamic characteristics is ultimately reduced to a system of Mathieu-type ordinary differential equations, which makes it possible to investigate the stability of fluid motion under coupled excitation.
+
+An efficient numerical framework for simulating fluid oscillations and assessing their stability in partially filled spherical tanks has been developed and implemented. It can be used for virtual testing and for analyzing fluid behavior during the design and operation of storage and aerospace fuel systems.
+
+\begin{thebibliography}{9}
+\bibitem{tank:gnitko2022}
+V.~Gnitko, A.~Karaiev, K.~Degtyariov, I.~Vierushkin, and E.~Strelnikova,
+``Singular and hypersingular integral equations in fluid--structure interaction analysis,''
+\emph{WIT Transactions on Engineering Sciences}, vol.~134, pp.~67--79, 2022.
+\href{https://doi.org/10.2495/BE450061}{doi:10.2495/BE450061}.
+
+\bibitem{tank:sierikova2022}
+O.~Sierikova, E.~Strelnikova, and K.~Degtyarev,
+``Seismic loads influence treatment on liquid-hydrocarbon storage tanks made of nanocomposite materials,''
+\emph{WSEAS Transactions on Applied and Theoretical Mechanics}, vol.~17, pp.~62--70, 2022.
+\href{https://doi.org/10.37394/232011.2022.17.9}{doi:10.37394/232011.2022.17.9}.
+\end{thebibliography}
