@@ -1,0 +1,67 @@
+% Edited conversion of source pp. 20--21.
+% The three figure panels are extracted from the source PDF and decoded by LuaLaTeX.
+\directlua{
+  dofile("scripts/base64_asset.lua")
+  decode_base64_file(
+    "figures/07-triangular-plates/geometry.jpg.b64",
+    "figures/07-triangular-plates/geometry.generated.jpg"
+  )
+  decode_base64_file(
+    "figures/07-triangular-plates/mesh-folded.jpg.b64",
+    "figures/07-triangular-plates/mesh-folded.generated.jpg"
+  )
+  decode_base64_file(
+    "figures/07-triangular-plates/mesh-square.jpg.b64",
+    "figures/07-triangular-plates/mesh-square.generated.jpg"
+  )
+}
+
+\ReportHeading
+  {Чисельний аналіз вільних коливань двох з’єднаних трикутних пластин}
+  {М.~Ю. Борисенко\textsuperscript{1}, О.~В. Бойчук\textsuperscript{2}, Н.~П. Борейко\textsuperscript{1}, М.~Л. Тікіч\textsuperscript{1}}
+  {\textsuperscript{1}Інститут механіки ім. С.~П. Тимошенка НАН України, Київ, Україна\\
+   \textsuperscript{2}Миколаївський національний аграрний університет, Миколаїв, Україна}
+  {}
+
+З’єднані пластинчасті елементи різної геометричної форми, зокрема трикутні пластини, широко застосовують у тонкостінних конструкціях корпусів машин, надводних і підводних апаратів, літальних та космічних апаратів, а також інших інженерних споруд. Під час експлуатації такі конструкції зазнають статичних і динамічних навантажень різної природи, що зумовлює потребу в попередньому аналізі їх міцності, стійкості та динамічної поведінки.
+
+Особливу увагу приділяють визначенню частот вільних коливань, оскільки резонансні режими можуть спричинити передчасне руйнування конструкції. У сучасній інженерній практиці динаміку пластинчастих систем аналізують за допомогою CAD/CAM/CAE-комплексів, що ґрунтуються на методі скінченних елементів. Одним із таких комплексів є Femap із розв’язувачем NX Nastran~\cite{plates:femap}. Цей підхід дає змогу з достатньою точністю визначати частоти та форми вільних коливань пластин складної геометрії~\cite{plates:hexagonal,plates:triangular}.
+
+Мета роботи --- методом скінченних елементів визначити частоти та форми вільних коливань двох ізотропних тонких трикутних пластин, з’єднаних під двогранним кутом $\varphi$, за вільних країв та еквівалентної маси. За $\varphi=180^{\circ}$ дві трикутні пластини утворюють еквівалентну квадратну пластину.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[b]{0.31\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/07-triangular-plates/geometry.generated.jpg}\\[-0.2em]
+    а)
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/07-triangular-plates/mesh-folded.generated.jpg}\\[-0.2em]
+    б)
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/07-triangular-plates/mesh-square.generated.jpg}\\[-0.2em]
+    в)
+  \end{minipage}
+  \caption{Геометрична модель двох з’єднаних трикутних пластин: а), б) --- загальний випадок; в) --- граничний випадок $\varphi=180^{\circ}$, що відповідає квадратній пластині.}
+\end{figure}
+
+\begin{thebibliography}{9}
+\bibitem{plates:femap}
+\emph{Dynamic Analysis User Guide: A Comprehensive User Guide for Simcenter Femap and Nastran Users}.
+Portland, OR: Applied CAX, 2021. Available: \url{https://www.appliedcax.com/} (accessed Mar.~7, 2026).
+
+\bibitem{plates:hexagonal}
+A.~Grigorenko, M.~Borysenko, O.~Boychuk, and N.~Boreiko,
+``Numerical analysis of free-vibration frequencies of a hexagonal plate,''
+in \emph{Selected Problems of Solid Mechanics and Solving Methods},
+Cham: Springer Nature Switzerland, 2024, pp.~201--220.
+
+\bibitem{plates:triangular}
+O.~Ya. Grigorenko, M.~Yu. Borisenko, O.~V. Boichuk, and L.~Yu. Vasil’eva,
+``Free vibrations of triangular plates with a hole,''
+\emph{International Applied Mechanics}, vol.~57, no.~5, pp.~534--542, 2021.
+\end{thebibliography}
