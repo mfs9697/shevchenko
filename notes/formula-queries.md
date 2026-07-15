@@ -12,6 +12,6 @@ Source pages: 9–14 of the MPTM 2026 Book of Abstracts, Part 2.
 
 3. **Equation (23): `F(b)` corrected to `F(A)`.** The PDF prints `F(b)` in the first expression, although it defines only `F(A)` and uses `F(A)` throughout Eq. (24). The correction also follows by substituting `m=b/[b+F(A)]` and `a=\chi/(1-\chi)` into Eq. (20). All three occurrences are therefore written as `F(A)`.
 
-4. **Equation (28): missing number restored; added derivative removed.** The PDF prose explicitly refers to Eq. (28), but the displayed relation `d\phi=e_p\,dp` is unnumbered. It has been numbered as Eq. (28). The pilot had added `e_p=de/dp`; this was removed because Eq. (26) implies that the full derivative of `e` also contains the linear term `a+a_0`. The text now states the mathematically consistent interpretation `e_p=d\phi/dp` along the current approximation.
+4. **Equation (28): missing number restored and comma derivative recovered.** The PDF prose explicitly refers to Eq. (28), although the displayed relation is unnumbered. The correct transcription is `d\phi=e_{,p}\,dp`: the comma in `e_{,p}` denotes differentiation of `e` with respect to `p`. The earlier pilot misread this as a separately subscripted quantity `e_p`; that reading and its accompanying explanation have been corrected.
 
 5. **General reconstruction policy.** Faint overbars, dots, averaging marks, and indices were resolved using definitions and subsequent equations. Where a source correction was made, it is recorded here and, when helpful, noted in a LaTeX source comment.
