@@ -1,0 +1,41 @@
+% Edited conversion of source p. 15.
+\ReportHeading
+  {Durability Assessment of Kaplan Turbine Units with Crack-Like Defects}
+  {K.~Muravski\textsuperscript{1}, K.~G.~Degtyarev\textsuperscript{2,3}, M.~O.~Chugay\textsuperscript{2}, D.~V.~Kriutchenko\textsuperscript{2}, O.~M.~Sierikova\textsuperscript{4}, E.~A.~Strelnikova\textsuperscript{2,3}}
+  {\textsuperscript{1}University of Zielona Góra, Poland\\
+   \textsuperscript{2}A.~Pidhornyi Institute of Power Machines and Systems, NAS of Ukraine\\
+   \textsuperscript{3}National Scientific Center ``Hon. Prof. M.~S. Bokarius Forensic Science Institute,'' Ministry of Justice of Ukraine\\
+   \textsuperscript{4}V.~N. Karazin Kharkiv National University, Kharkiv, Ukraine}
+  {}
+
+The objective of this study is to develop an effective computational framework for assessing the fatigue durability of structural components used in power-engineering systems under cyclic tension--compression. The stress--strain response is evaluated using a sequentially coupled finite-element--boundary-element methodology~\cite{kaplan:sierikova2022}.
+
+At the preliminary stage, regions of elevated stress concentration are identified with high precision, after which representative crack-like defects are introduced into these critical regions. To facilitate fatigue analysis, a database of typical crack geometries is established. It includes two- and three-dimensional crack configurations, as well as chains of interacting cracks that represent complex defect scenarios. Crack growth is investigated by calculating stress-intensity factors from hypersingular boundary integral equations~\cite{kaplan:gnitko2022}.
+
+The methodology is verified against benchmark problems in two and three dimensions, confirming its accuracy and computational efficiency. The novelty of the study lies in applying hypersingular boundary integral formulations to predict fatigue life in both standard test problems and real engineering structures.
+
+For components containing cracks, the number of load cycles to failure is determined, enabling a reliable estimate of the remaining service life of power equipment operating under cyclic loading.
+
+A statistical analysis of Kaplan-turbine shaft failures indicates that, although such failures are relatively rare, they are primarily associated with corrosion-affected regions. Application of the developed approach to rotor shafts demonstrates the possibility of extending their service life beyond 50 years. The fatigue durability of a Kaplan-turbine blade containing a defect was also investigated, thereby extending the approach to blade-type components.
+
+Future work will address a broader range of structural components, more complex crack configurations, and innovative materials~\cite{kaplan:sierikova2022nano}.
+
+\begin{thebibliography}{9}
+\bibitem{kaplan:sierikova2022}
+O.~Sierikova, E.~Strelnikova, D.~Kriutchenko, and V.~Gnitko,
+``Reducing environmental hazards of prismatic storage tanks under vibrations,''
+\emph{WSEAS Transactions on Circuits and Systems}, vol.~21, pp.~249--257, 2022.
+\href{https://doi.org/10.37394/23201.2022.21.27}{doi:10.37394/23201.2022.21.27}.
+
+\bibitem{kaplan:gnitko2022}
+V.~Gnitko, A.~Karaiev, K.~Degtyariov, I.~Vierushkin, and E.~Strelnikova,
+``Singular and hypersingular integral equations in fluid--structure interaction analysis,''
+\emph{WIT Transactions on Engineering Sciences}, vol.~134, pp.~67--79, 2022.
+\href{https://doi.org/10.2495/BE450061}{doi:10.2495/BE450061}.
+
+\bibitem{kaplan:sierikova2022nano}
+O.~Sierikova, E.~Strelnikova, and K.~Degtyarev,
+``Seismic loads influence treatment on liquid-hydrocarbon storage tanks made of nanocomposite materials,''
+\emph{WSEAS Transactions on Applied and Theoretical Mechanics}, vol.~17, pp.~62--70, 2022.
+\href{https://doi.org/10.37394/232011.2022.17.9}{doi:10.37394/232011.2022.17.9}.
+\end{thebibliography}

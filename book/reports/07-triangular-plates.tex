@@ -1,0 +1,94 @@
+% Edited conversion of source pp. 20--21.
+% The source raster panels are redrawn as scalable vector schematics.
+\ReportHeading
+  {Чисельний аналіз вільних коливань двох з’єднаних трикутних пластин}
+  {М.~Ю. Борисенко\textsuperscript{1}, О.~В. Бойчук\textsuperscript{2}, Н.~П. Борейко\textsuperscript{1}, М.~Л. Тікіч\textsuperscript{1}}
+  {\textsuperscript{1}Інститут механіки ім. С.~П. Тимошенка НАН України, Київ, Україна\\
+   \textsuperscript{2}Миколаївський національний аграрний університет, Миколаїв, Україна}
+  {}
+
+З’єднані пластинчасті елементи різної геометричної форми, зокрема трикутні пластини, широко застосовують у тонкостінних конструкціях корпусів машин, надводних і підводних апаратів, літальних та космічних апаратів, а також інших інженерних споруд. Під час експлуатації такі конструкції зазнають статичних і динамічних навантажень різної природи, що зумовлює потребу в попередньому аналізі їх міцності, стійкості та динамічної поведінки.
+
+Особливу увагу приділяють визначенню частот вільних коливань, оскільки резонансні режими можуть спричинити передчасне руйнування конструкції. У сучасній інженерній практиці динаміку пластинчастих систем аналізують за допомогою CAD/CAM/CAE-комплексів, що ґрунтуються на методі скінченних елементів. Одним із таких комплексів є Femap із розв’язувачем NX Nastran~\cite{plates:femap}. Цей підхід дає змогу з достатньою точністю визначати частоти та форми вільних коливань пластин складної геометрії~\cite{plates:hexagonal,plates:triangular}.
+
+Мета роботи --- методом скінченних елементів визначити частоти та форми вільних коливань двох ізотропних тонких трикутних пластин, з’єднаних під двогранним кутом $\varphi$, за вільних країв та еквівалентної маси. За $\varphi=180^{\circ}$ дві трикутні пластини утворюють еквівалентну квадратну пластину.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[b]{0.31\textwidth}
+    \centering
+    \begin{tikzpicture}[x=0.62cm,y=0.62cm]
+      \coordinate (P) at (0,0);
+      \coordinate (Q) at (4,0.8);
+      \coordinate (A) at (-0.8,-1.5);
+      \coordinate (B) at (0.1,3.0);
+      \fill[black!8] (P)--(Q)--(B)--cycle;
+      \fill[black!28] (P)--(A)--(Q)--cycle;
+      \draw (P)--(Q)--(B)--cycle;
+      \draw (P)--(A)--(Q);
+      \draw[dashed] (P)--(Q);
+      \draw[dashed] (P)--(B);
+      \draw[->] (1.0,0.2) arc[start angle=10,end angle=72,radius=0.9];
+      \node at (1.0,1.0) {$\varphi$};
+    \end{tikzpicture}\\[-0.2em]
+    а)
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\textwidth}
+    \centering
+    \begin{tikzpicture}[x=0.59cm,y=0.59cm]
+      \coordinate (P) at (0,0);
+      \coordinate (Q) at (4,0.7);
+      \coordinate (A) at (-0.6,-1.2);
+      \coordinate (B) at (0.2,3.0);
+      \fill[black!6] (P)--(Q)--(B)--cycle;
+      \fill[black!35] (P)--(A)--(Q)--cycle;
+      \begin{scope}
+        \clip (P)--(Q)--(B)--cycle;
+        \foreach \i in {-2,-1.6,...,5}{
+          \draw[black!45,line width=0.15pt] (\i,-2)--(\i,4);
+          \draw[black!45,line width=0.15pt] (-2,\i)--(5,\i);
+          \draw[black!45,line width=0.15pt] (-2,\i)--(5,\i+3.5);
+        }
+      \end{scope}
+      \draw (P)--(Q)--(B)--cycle;
+      \draw (P)--(A)--(Q);
+      \draw[dashed] (P)--(Q);
+    \end{tikzpicture}\\[-0.2em]
+    б)
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\textwidth}
+    \centering
+    \begin{tikzpicture}[x=0.53cm,y=0.53cm]
+      \draw (0,0) rectangle (4,4);
+      \begin{scope}
+        \clip (0,0) rectangle (4,4);
+        \foreach \i in {0,0.4,...,4}{
+          \draw[black!45,line width=0.15pt] (\i,0)--(\i,4);
+          \draw[black!45,line width=0.15pt] (0,\i)--(4,\i);
+          \draw[black!45,line width=0.15pt] (-4,\i)--(4,\i+4);
+          \draw[black!45,line width=0.15pt] (0,\i)--(8,\i-4);
+        }
+      \end{scope}
+      \draw[dashed] (0,0)--(4,4);
+    \end{tikzpicture}\\[-0.2em]
+    в)
+  \end{minipage}
+  \caption{Геометрична модель двох з’єднаних трикутних пластин: а), б) --- загальний випадок; в) --- граничний випадок $\varphi=180^{\circ}$, що відповідає квадратній пластині.}
+\end{figure}
+
+\begin{thebibliography}{9}
+\bibitem{plates:femap}
+\emph{Dynamic Analysis User Guide: A Comprehensive User Guide for Simcenter Femap and Nastran Users}.
+Portland, OR: Applied CAX, 2021. Available: \url{https://www.appliedcax.com/} (accessed Mar.~7, 2026).
+
+\bibitem{plates:hexagonal}
+A.~Grigorenko, M.~Borysenko, O.~Boychuk, and N.~Boreiko,
+``Numerical analysis of free-vibration frequencies of a hexagonal plate,''
+in \emph{Selected Problems of Solid Mechanics and Solving Methods},
+Cham: Springer Nature Switzerland, 2024, pp.~201--220.
+
+\bibitem{plates:triangular}
+O.~Ya. Grigorenko, M.~Yu. Borisenko, O.~V. Boichuk, and L.~Yu. Vasil’eva,
+``Free vibrations of triangular plates with a hole,''
+\emph{International Applied Mechanics}, vol.~57, no.~5, pp.~534--542, 2021.
+\end{thebibliography}
