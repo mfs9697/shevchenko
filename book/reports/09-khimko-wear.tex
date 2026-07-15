@@ -1,0 +1,64 @@
+% Edited conversion of source pp. 23--24.
+% The source micrographs are preserved as a base64-encoded asset and decoded by LuaLaTeX.
+\directlua{
+  dofile("scripts/base64_asset.lua")
+  decode_base64_file(
+    "figures/09-khimko/contact-damage.jpg.b64",
+    "figures/09-khimko/contact-damage.generated.jpg"
+  )
+}
+
+\ReportHeading
+  {Simulation of the Wear Resistance of Ti--CFRP/GFRP Contacts under Vibration}
+  {A.~M. Khimko}
+  {Department of Air Transport, National University ``Kyiv Aviation Institute'', Kyiv, Ukraine}
+  {}
+
+Aircraft assemblies containing Ti--CFRP or Ti--GFRP interfaces are widely used in aviation and space technology. Under vibration loading, relative micromotions arise between titanium components and load-bearing carbon- or glass-fibre-reinforced polymer parts. These motions cause fretting corrosion and damage to the titanium-alloy surface (Fig.~1).
+
+\begin{center}
+  \includegraphics[width=0.78\textwidth]{figures/09-khimko/contact-damage.generated.jpg}\\[-0.2em]
+  {\small Fig.~1. Damage to titanium-alloy aircraft components at a Ti--CFRP contact under vibration loading.}
+\end{center}
+
+Introducing an intermediate ductile metal layer, Ti--Me--CFRP/GFRP, or a polymer layer, Ti--PTFE--CFRP/GFRP, provides mechanical and thermal isolation while reducing the risk of galvanic corrosion and localized vibration-induced damage. Reliable design of such joints requires analysis of the mechanical and thermal properties of all constituent materials, their interaction, and the zones in which stress and strain may concentrate.
+
+A Ti--CFRP/GFRP joint combines a compliant polymer matrix or interlayer with stiff carbon or glass fibres. The calculations were aimed at selecting the coating thicknesses and number of layers that minimize the vibration amplitude in the working contact. The analysis indicates that the thickness of the compliant material (PTFE, a ductile metal, or the polymer matrix) should be approximately 15--30\% smaller than that of the stiff layer represented by the reinforcing fibres or a strengthened titanium-alloy surface layer.
+
+When the composite and titanium alloy interact through a ductile metal or polymer layer, local loads may exceed the yield strength of the interlayer and produce plastic deformation at the contacting asperities. The resulting elastic--plastic response governs vibration damping and depends strongly on the geometry and physicomechanical properties of the surface roughness~\cite{khimko:liu2002}.
+
+The calculated model and earlier studies~\cite{khimko:gooch2011,khimko:2025env,khimko:2025wear,khimko:shalapko2009} show that compliant polymeric or metallic interlayers are advisable for reducing frictional effects, improving surface damping, and accelerating running-in. Experimental observations also indicate that oxygen acting on the titanium surface accelerates damage during fretting. A ductile polymer or metal interlayer can partially shield the titanium surface from this action.
+
+\textbf{Conclusions.} Models that account jointly for stiff and compliant coatings predict a reduction in vibration through energy absorption. Surface roughness, the physicomechanical properties of the surface layer, and its damping capacity must be considered together. The main technological means of mitigating vibration damage in Ti--CFRP/GFRP contacts is therefore the combined use of compliant and stiff layers. Complete suppression is not always possible, but the vibration amplitude can be reduced by approximately one order of magnitude.
+
+The optimization model permits the coating materials, thicknesses, and number of layers to be selected so that the vibration amplitude at the friction surface is minimized. More effective damping in the contact zone leads directly to lower fretting wear.
+
+\renewcommand{\refname}{References}
+\begin{thebibliography}{9}
+\bibitem{khimko:liu2002}
+Z.~Liu, J.~Sun, and W.~Shen,
+``Study of plowing and friction at the surfaces of plastically deformed metals,''
+\emph{Tribology International}, vol.~35, no.~8, pp.~511--522, 2002.
+\url{https://doi.org/10.1016/S0301-679X(02)00046-4}.
+
+\bibitem{khimko:gooch2011}
+J.~W. Gooch, ``Tribology,'' in \emph{Encyclopedic Dictionary of Polymers}.
+New York: Springer, 2011, p.~762.
+\url{https://doi.org/10.1007/978-1-4419-6247-8_12082}.
+
+\bibitem{khimko:2025env}
+A.~Khimko,
+``The influence of corrosive and aggressive environments on the contact of aluminum and titanium alloys with CFRP under vibration loading conditions,''
+\emph{Problems of Friction and Wear}, no.~4(109), pp.~95--104, 2025.
+\url{https://doi.org/10.18372/0370-2197.4(109).20757}.
+
+\bibitem{khimko:2025wear}
+A.~Khimko, O.~Mikosianchik, M.~Khimko, and O.~Filonenko,
+``Wear resistance of contact of titanium alloys with composite materials depending on the technology of their manufacturing under conditions of nominally fixed contact,''
+\emph{Problems of Friction and Wear}, no.~3(108), pp.~28--37, 2025.
+\url{https://doi.org/10.18372/0370-2197.3(108).20445}.
+
+\bibitem{khimko:shalapko2009}
+Y.~I. Shalapko,
+\emph{Evolutionary Models of Fretting Processes in Nominally Stationary Frictional Contact}, D.Sc. dissertation, Khmelnytskyi National University, Khmelnytskyi, 2009, 418~p.
+\end{thebibliography}
