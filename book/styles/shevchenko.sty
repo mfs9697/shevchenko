@@ -12,6 +12,8 @@
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage[nameinlink,noabbrev]{cleveref}
 \RequirePackage{ragged2e}
+\RequirePackage{graphicx}
+\RequirePackage{wrapfig}
 
 \setlength{\parindent}{1.25em}
 \setlength{\parskip}{0pt}
@@ -35,7 +37,7 @@
     {\large\bfseries #2\par}
     \vspace{0.35em}
     {#3\par}
-    \href{mailto:#4}{#4}
+    \if\relax\detokenize{#4}\relax\else\href{mailto:#4}{#4}\fi
   \end{center}
   \vspace{0.8em}
 }
