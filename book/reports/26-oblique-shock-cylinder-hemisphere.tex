@@ -1,0 +1,88 @@
+% Edited conversion of source pp. 43--45.
+% Source plots are represented by compact TikZ/PGFPlots reconstructions.
+\ReportHeading
+  {Набігання ступінчастої ударної хвилі під кутом $45^\circ$ на модель типу циліндр--півсфера}
+  {А.~С. Колядюк}
+  {Інститут механіки ім. С.~П. Тимошенка НАН України, Київ, Україна}
+  {}
+
+Для аналізу динаміки складних оболонкових конструкцій необхідно визначати навантаження, яке безпосередньо діє на їхню поверхню. Розглянуто набігання ступінчастої ударної хвилі з крутим фронтом і стрибком тиску $\Delta P=10^6$~Па під кутом $45^\circ$ на модель типу циліндр--півсфера, що відтворює геометрію обтічника. Радіуси циліндричної та сферичної частин становлять 324~мм.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=0.72cm,y=0.72cm,line cap=round,line join=round]
+  \draw[thick] (0,0)--(6.0,0)--(6.0,2.2) arc (-90:90:2.2)--(0,4.4)--cycle;
+  \draw[step=0.35,very thin] (-0.2,-0.2) grid (8.5,4.6);
+  \draw[white,line width=1.1pt] (0,0)--(6.0,0)--(6.0,2.2) arc (-90:90:2.2)--(0,4.4)--cycle;
+  \draw[thick] (0,0)--(6.0,0)--(6.0,2.2) arc (-90:90:2.2)--(0,4.4)--cycle;
+  \foreach \x in {0.35,0.7,...,5.95} {\draw[very thin] (\x,0)--(\x,4.4);}
+  \foreach \y in {0.35,0.7,...,4.2} {\draw[very thin] (0,\y)--(6.0,\y);}
+  \draw[->,very thick] (-1.0,5.4)--(1.2,3.2) node[midway,above right] {ударна хвиля};
+\end{tikzpicture}
+\caption{Схематична скінченно-елементна сітка розрахункової області біля комбінованої циліндрично-сферичної оболонки.}
+\end{figure}
+
+Середовище моделювали як нев’язкий стисливий ідеальний газ. У цій постановці усереднені за Рейнольдсом рівняння Нав’є--Стокса зводяться до рівнянь Ейлера:
+\begin{align}
+ \frac{\partial \rho}{\partial t}+\nabla\!\cdot(\rho\mathbf v)&=0,\\
+ \frac{\partial(\rho\mathbf v)}{\partial t}
+ +\nabla\!\cdot\bigl(\rho\mathbf v\otimes\mathbf v+p\mathbf I\bigr)&=0,\\
+ \frac{\partial(\rho E)}{\partial t}
+ +\nabla\!\cdot\bigl[\mathbf v(\rho E+p)\bigr]&=0,
+\end{align}
+де $\mathbf v$ --- вектор швидкості, $\rho$ --- густина, $p$ --- статичний тиск, а повна енергія на одиницю маси
+\[
+ E=h-\frac{p}{\rho}+\frac{|\mathbf v|^2}{2},
+\]
+$h$ --- ентальпія.
+
+Методом скінченних елементів визначено розподіл дифракційного тиску на зовнішній поверхні комбінованої оболонки. Процес поширення хвилі моделювали на часовому інтервалі $9\times10^{-4}$~с. Розрахунки показують різке зростання тиску в момент проходження фронту, подальше затухання та появу відкладених локальних максимумів у різних точках периметра.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+ width=0.93\textwidth,height=6.0cm,
+ xlabel={$t$, с},ylabel={$p_d$, Па},
+ xmin=0,xmax=9e-4,ymin=0,ymax=6e6,
+ scaled x ticks=base 10:-4,
+ grid=major,legend style={font=\scriptsize,at={(0.98,0.96)},anchor=north east}]
+ \addplot[thick,domain=0:0.0009,samples=250] {x<0.00006 ? 0 : 5.6e6*exp(-(x-0.00006)/0.00013)};
+ \addplot[dashed,thick,domain=0:0.0009,samples=250] {x<0.00008 ? 0 : 5.1e6*exp(-(x-0.00008)/0.00015)};
+ \addplot[dashdotted,thick,domain=0:0.0009,samples=250] {x<0.00019 ? 0 : 3.6e6*exp(-(x-0.00019)/0.00017)};
+ \addplot[dotted,thick,domain=0:0.0009,samples=250] {x<0.00028 ? 0 : 1.5e6*exp(-(x-0.00028)/0.00020)};
+ \legend{передня точка,верхня дуга,бічна ділянка,тильна ділянка}
+\end{axis}
+\end{tikzpicture}
+\caption{Схематичне відтворення характерних залежностей дифракційного тиску від часу у вибраних точках периметра.}
+\end{figure}
+
+Максимальний тиск виникає на навітряній частині оболонки й зменшується вздовж периметра до тильної ділянки. Час досягнення максимуму при цьому зростає, що відображає послідовне проходження фронту та дифракцію хвилі навколо оболонки.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=0.85cm,y=0.85cm,line cap=round,line join=round]
+  \draw[thick] (-3,0)--(-3,2.2) arc (180:0:3 and 3)--(3,0);
+  \draw[thick] (-1.65,0)--(-1.65,1.2) arc (180:0:1.65 and 1.65)--(1.65,0);
+  \foreach \a/\r/\txt in {180/3.8/5.52,150/3.5/4.81,120/3.3/4.10,90/3.1/4.92,60/2.8/3.72,35/2.5/1.97,20/2.2/1.06,8/2.0/0.55} {
+    \draw ({1.65*cos(\a)},{1.65*sin(\a)})--({\r*cos(\a)},{\r*sin(\a)});
+    \node[font=\scriptsize] at ({(\r+0.35)*cos(\a)},{(\r+0.35)*sin(\a)}) {$\txt$};
+  }
+  \node[font=\scriptsize] at (0,-0.45) {$p_{d,\max}$, МПа};
+\end{tikzpicture}
+\caption{Схематична епюра максимального дифракційного тиску вздовж периметра оболонки.}
+\end{figure}
+
+Отримані параметри навантаження можуть бути використані у подальшому аналізі динаміки багатошарових оболонкових конструкцій.
+
+\begin{thebibliography}{9}
+\bibitem{shock:handbook2001}
+G.~Ben-Dor, O.~Igra, and T.~Elperin,
+\emph{Handbook of Shock Waves}, vol.~1.
+Amsterdam: Academic Press--Elsevier, 2001, 889~p.
+
+\bibitem{shock:zeldovich2012}
+Ya.~B. Zel’dovich and Yu.~P. Raizer,
+\emph{Physics of Shock Waves and High-Temperature Hydrodynamic Phenomena}.
+Courier Corporation, 2012, 944~p.
+\end{thebibliography}
