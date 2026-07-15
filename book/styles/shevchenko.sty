@@ -1,0 +1,41 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{shevchenko}[2026/07/15 Proceedings style for MPTM 2026]
+
+\RequirePackage[a4paper,top=20mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\RequirePackage{mathtools}
+\RequirePackage{libertinus}
+
+\RequirePackage{microtype}
+\RequirePackage{booktabs}
+\RequirePackage{enumitem}
+\RequirePackage{xurl}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[nameinlink,noabbrev]{cleveref}
+\RequirePackage{ragged2e}
+
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0pt}
+\allowdisplaybreaks
+\renewcommand{\theequation}{\arabic{equation}}
+\setcounter{secnumdepth}{0}
+\emergencystretch=2em
+
+\newcommand{\avg}[2][]{\left\langle #2\right\rangle_{#1}}
+\newcommand{\Extr}{\operatorname{Extr}}
+\newcommand{\dd}{\,\mathrm{d}}
+
+\newcommand{\ReportHeading}[4]{%
+  \clearpage
+  \setcounter{equation}{0}%
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}%
+  \begin{center}
+    {\Large\bfseries #1\par}
+    \vspace{0.8em}
+    {\large\bfseries #2\par}
+    \vspace{0.35em}
+    {#3\par}
+    \href{mailto:#4}{#4}
+  \end{center}
+  \vspace{0.8em}
+}

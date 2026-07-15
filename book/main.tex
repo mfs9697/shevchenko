@@ -1,0 +1,17 @@
+% Main proceedings build. Compile with LuaLaTeX (preferably via latexmk).
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{styles/shevchenko}
+
+\begin{document}
+
+\pagenumbering{roman}
+\input{frontmatter/titlepage}
+\clearpage
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\input{reports/01-marina}
+
+\end{document}

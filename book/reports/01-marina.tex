@@ -1,0 +1,327 @@
+% Pilot conversion of pp. 9--14 of the source proceedings PDF.
+% Equations were reconstructed from the rendered PDF; editorial decisions are documented in notes/formula-queries.md.
+\ReportHeading
+  {A Hybrid Approach to Calibrating a Multiscale Constitutive Model}
+  {V. Yu. Marina}
+  {Technical University of Moldova, Chi\c{s}in\u{a}u, Moldova}
+  {vasilemarina21@yahoo.com}
+
+Models of the mechanical behavior of a heterogeneous medium are based on the general properties of a representative macroelement suitable for this purpose~\cite{shevchenko1976,shevchenko1992,marina2024}. Loading of a representative volume is treated as a multilevel self-organizing process~\cite{marina2024,marina1997}. The novelty of the proposed approach lies in independently calibrating the model parameters using the stress--strain curve of a polycrystal together with the elastic constants and hardening characteristics of single crystals.
+
+The stress and strain tensors at the material-particle level are denoted by $\widetilde t_{ij}$ and $\widetilde d_{ij}$, respectively, whereas their counterparts at the representative-volume level are denoted by $t_{ij}$ and $d_{ij}$. The equilibrium equations and the geometric Cauchy relations are assumed to hold in the domain $\Delta V_0$. Homogeneous stress and strain conditions are imposed on the surface of the representative volume. The Hill relations then take the form
+\begin{equation}
+\begin{aligned}
+ t_{ij}&=\avg{\widetilde t_{ij}}
+       =\frac{1}{\Delta V_0}\int_{\Delta V_0}\widetilde t_{ij}\dd V,
+ & d_{ij}&=\avg{\widetilde d_{ij}},\\
+ \avg{\widetilde t_{ij}\widetilde d_{ij}}
+       &=\avg{\widetilde t_{ij}}\avg{\widetilde d_{ij}}.
+\end{aligned}
+\end{equation}
+Here and below, angle brackets denote averaging over the representative volume unless a subscript specifies another averaging operation.
+
+We decompose the stress and strain tensors into deviatoric parts, $\sigma_{ij}$ and $\varepsilon_{ij}$, and spherical parts, $\sigma_0\delta_{ij}$ and $\varepsilon_0\delta_{ij}$. Thus,
+\[
+ \sigma_{ij}=\avg{\widetilde\sigma_{ij}},\qquad
+ \varepsilon_{ij}=\avg{\widetilde\varepsilon_{ij}},
+\]
+whereas, in general,
+\[
+ \avg{\widetilde\sigma_{ij}\widetilde\varepsilon_{ij}}
+ \ne \avg{\widetilde\sigma_{ij}}\avg{\widetilde\varepsilon_{ij}},
+ \qquad
+ \avg{\widetilde\sigma_0\widetilde\varepsilon_0}
+ \ne \avg{\widetilde\sigma_0}\avg{\widetilde\varepsilon_0}.
+\]
+The measures $\avg{\widetilde\sigma_{ij}\widetilde\varepsilon_{ij}}$ and $\avg{\widetilde\sigma_0\widetilde\varepsilon_0}$ depend not only on boundary data but also on the internal structure of the representative volume. Reference~\cite{marina2024} introduced an extremum principle for the discrepancy between measures: in an actual interaction, the discrepancy between a macroscopic measure and the average of its microscopic analogue attains an extremum,
+\begin{equation}
+\begin{aligned}
+ \Delta
+ &=\avg{\widetilde\sigma_{ij}\widetilde\varepsilon_{ij}}
+   -\avg{\widetilde\sigma_{ij}}\avg{\widetilde\varepsilon_{ij}}
+   =\Extr,\\
+ \Delta_0
+ &=3\avg{\widetilde\sigma_0\widetilde\varepsilon_0}
+   -3\avg{\widetilde\sigma_0}\avg{\widetilde\varepsilon_0}
+   =\Extr,
+ \qquad \Delta=-\Delta_0.
+\end{aligned}
+\end{equation}
+The discrepancy $\Delta_0$, or equivalently $-\Delta$, represents the latent elastic deformation energy remaining after the macroelement is unloaded. In addition to Eqs.~(1) and~(2), the micro--macro relation is based on the orthogonality of the stress and strain fluctuation tensors in the structural elements~\cite{marina2024,marina1997},
+\begin{equation}
+\begin{aligned}
+ (\widetilde t_{ij}-t_{ij})(\widetilde d_{ij}-d_{ij})&=0,\\
+ 3(\widetilde\sigma_0-\sigma_0)(\widetilde\varepsilon_0-\varepsilon_0)
+ &= (\widetilde\sigma_{ij}-\sigma_{ij})
+    (\varepsilon_{ij}-\widetilde\varepsilon_{ij}),
+\end{aligned}
+\end{equation}
+and on proportionality of the deviatoric fluctuations,
+\begin{equation}
+ \widetilde\sigma_{ij}-\sigma_{ij}
+ =B\bigl(\varepsilon_{ij}-\widetilde\varepsilon_{ij}\bigr).
+\end{equation}
+The parameter $B$ characterizes the heterogeneity of the stress and strain distributions in the representative volume. Once the microscopic constitutive equations and the averaging procedure are specified, Eqs.~(1)--(4) can be used to construct the macroscopic governing equations.
+
+For a multiphase polycrystal with a cubic lattice in the reversible-deformation regime, the governing relations are
+\begin{equation}
+ \frac{5}{2G+B}
+ =\sum_k\left(
+    \frac{3}{2C_{44,k}+B}
+   +\frac{2A_k}{2C_{44,k}+A_kB}
+  \right)c_k,
+ \qquad
+ A_k=\frac{2C_{44,k}}{C_{11,k}-C_{12,k}},
+\end{equation}
+\begin{equation}
+ \Delta
+ =-\sigma_{ij}\varepsilon_{ij}\frac{B}{10G}
+ \sum_k\left[
+  2\left(\frac{(B+2G)A_k}{2C_{44,k}+A_kB}\right)^2
+ +3\left(\frac{B+2G}{2C_{44,k}+B}\right)^2-5
+ \right]c_k
+ =\Extr,
+\end{equation}
+\begin{equation}
+ K=\sqrt{K_\varepsilon K_\sigma},
+ \qquad
+ K_\varepsilon=\sum_k K_kc_k,
+ \qquad
+ \frac{1}{K_\sigma}=\sum_k\frac{c_k}{K_k}.
+\end{equation}
+Here $G$ and $K$ are the macroscopic shear and bulk moduli, respectively; $C_{11,k}$, $C_{12,k}$, and $C_{44,k}$ are the elastic constants of a single crystal in phase $k$; $A_k$ is the anisotropy factor; $K_k=(C_{11,k}+2C_{12,k})/3$ is the crystal bulk modulus; and $c_k$ is the weight of phase $k$. The loading is assumed to satisfy $\sigma_{ij}\varepsilon_{ij}=\text{const}$.
+
+To describe irreversible processes, an intermediate structural scale, the mesolevel, is introduced. Its local structural unit is a \emph{subelement}: the set of all material particles in a representative volume $\Delta V_0$ having the same deviator of irreversible strain~\cite{shevchenko1976,shevchenko1992,marina2024}. Particles belonging to one subelement may differ in position and crystallographic orientation. The number of particles sharing the same irreversible-strain deviator determines the weight of the subelement, which remains constant during loading.
+
+Accordingly, stress and strain are introduced at three structural levels: the material particle $(\widetilde t_{ij},\widetilde d_{ij})$, the subelement
+\[
+ \overline t_{ij}=\overline\sigma_{ij}+\overline\sigma_0\delta_{ij},
+ \qquad
+ \overline d_{ij}=\overline\varepsilon_{ij}+\overline\varepsilon_0\delta_{ij},
+\]
+and the body element $(t_{ij},d_{ij})$. In a statistical model, averaging is performed over an ensemble of realizations rather than directly over the volume, under the ergodic hypothesis. Averaging over the crystallographic orientation factor $\Omega$ gives
+\[
+ \overline\sigma_{ij}=\avg[\Omega]{\widetilde\sigma_{ij}},\quad
+ \overline\varepsilon_{ij}=\avg[\Omega]{\widetilde\varepsilon_{ij}},\quad
+ \overline\sigma_0=\avg[\Omega]{\widetilde\sigma_0},\quad
+ \overline\varepsilon_0=\avg[\Omega]{\widetilde\varepsilon_0},
+\]
+whereas averaging over the scatter parameter $\xi$ of the subelement yield strengths gives
+\[
+ \sigma_{ij}=\avg[\xi]{\overline\sigma_{ij}},\quad
+ \varepsilon_{ij}=\avg[\xi]{\overline\varepsilon_{ij}},\quad
+ \sigma_0=\avg[\xi]{\overline\sigma_0},\quad
+ \varepsilon_0=\avg[\xi]{\overline\varepsilon_0}.
+\]
+The total strains at the particle, subelement, and body-element levels are decomposed into reversible components $(\widetilde e_{ij},\overline e_{ij},e_{ij})$ and irreversible components $(\widetilde p_{ij},\overline p_{ij},p_{ij})$~\cite{shevchenko1976,shevchenko1992,marina2024}. The tensor properties of a subelement are written as
+\begin{equation}
+ \overline e_{ij}
+ =\tau\frac{\dd\overline p_{ij}}{\dd\overline\lambda}
+  +\overline r\frac{\overline p_{ij}}{\overline p},
+ \qquad
+ \dd\overline\lambda
+ =\sqrt{\dd\overline p_{ij}\,\dd\overline p_{ij}},
+ \qquad
+ \overline p=\sqrt{\overline p_{ij}\overline p_{ij}},
+ \qquad
+ \tau=\sqrt{\tau_{ij}\tau_{ij}}.
+\end{equation}
+The quantity characterizing the isotropic contribution is represented as~\cite{marina2024,marina1997}
+\begin{equation}
+\begin{aligned}
+ \tau(\xi,\gamma,\upsilon,s)
+ &=s+\tau_0(\gamma,\upsilon)+\theta(\gamma,\upsilon)\xi,\\
+ \upsilon&=\varepsilon_T+p_0,
+ \qquad
+ \gamma=\frac{1}{\Psi'}\int_0^{\Psi'}
+ \sqrt{\dot{\overline p}_{ij}\dot{\overline p}_{ij}}\dd\psi.
+\end{aligned}
+\end{equation}
+Here $\upsilon$ is the averaged inelastic volume change, $\varepsilon_T$ is the thermal volumetric strain of a body element, $p_0$ is the irreversible volume change caused by material damage, $\xi$ distinguishes the subelements, $s=\avg{\overline s}$ is their averaged isotropic hardening, and $\gamma$ is the averaged rate of irreversible strain. In the averaging notation of Eq.~(9), $\psi$ is the subelement-weight coordinate and $\Psi'$ is the total weight, or normalizing measure, of the averaging set. The functions $\tau_0(\gamma,\upsilon)$ and $\theta(\gamma,\upsilon)$ characterize the thermoviscoplastic properties of the material.
+
+References~\cite{marina2024,marina1997} considered randomly oriented material particles without preferred directions. In this approximation, the subelements are elastically isotropic, and Eq.~(4), under proportional loading, becomes
+\begin{equation}
+\begin{aligned}
+ \overline\sigma_{ij}-\sigma_{ij}
+ &=2Gm\bigl(p_{ij}-\overline p_{ij}\bigr),
+ & \overline e-e&=m(p-\overline p),\\
+ m&=\frac{B}{2G+B},
+ & \overline e_{ij}&=\frac{\overline\sigma_{ij}}{2G},
+ \qquad e_{ij}=\frac{\sigma_{ij}}{2G}.
+\end{aligned}
+\end{equation}
+Here $p=\sqrt{p_{ij}p_{ij}}$ and $e=\sqrt{e_{ij}e_{ij}}$. On linear portions of isotropic hardening, $s=a_0p$, and kinematic hardening, $\overline r=a\overline p$, the moduli of reversible and irreversible strain satisfy
+\begin{equation}
+\begin{aligned}
+ \overline e(\xi,\xi')
+ &=\tau_0+\theta\xi+a_0p(\xi')+a\overline p(\xi,\xi'),\\
+ \overline p(\xi,\xi')
+ &=\frac{\theta}{a+m}(\xi'-\xi),
+ \qquad 0\leq\xi\leq\xi'.
+\end{aligned}
+\end{equation}
+The parameter $\xi'$ separates the currently active subset of irreversibly deforming subelements, $0\leq\xi\leq\xi'$, from subelements that remain elastic, $\xi>\xi'$. For clarity, the state parameters $\gamma$ and $\upsilon$ are suppressed in Eq.~(11) and in the formulas below.
+
+Integrating Eq.~(11) over the scatter parameter $\xi$ gives the following parametric relation between the macroscopic moduli of reversible and irreversible deviatoric strains:
+\begin{equation}
+\begin{aligned}
+ p(\xi',\theta)
+ &=\int_0^{\xi'}\overline p(\xi,\xi',\theta)y(\xi)\dd\xi
+ =\frac{\theta f(\xi')}{m+a},\\
+ f(\xi')&=\int_0^{\xi'}(\xi'-\xi)y(\xi)\dd\xi,
+ \qquad \theta=\theta(\gamma,\upsilon),
+\end{aligned}
+\end{equation}
+\begin{equation}
+ e(\xi',\theta,\tau_0)
+ =\tau_0+\theta\xi'-(m-a_0)p(\xi',\theta),
+ \qquad
+ \tau_0=\tau_0(\gamma,\upsilon),
+ \qquad \xi'\geq0.
+\end{equation}
+Equations~(12) and~(13) describe irreversible deformation under active loading throughout the currently irreversibly deforming subset. In such processes, the weight
+\[
+ \psi(\xi')=\int_0^{\xi'}y(\xi)\dd\xi
+\]
+of that subset does not decrease with time, and only one interface separates the reversible and irreversible subelements. The macroscopic governing equations contain the unknown parameter $m$, which quantifies stress and strain heterogeneity. It is determined by applying the extremum principle to the discrepancy in Eq.~(2) subject to the constitutive relation in Eq.~(11). We restrict the analysis to processes with constant state parameters, $\gamma=\text{const}$ and $\upsilon=\text{const}$.
+
+By definition of a subelement, the material particles belonging to it have identical irreversible strains, $\widetilde p_{ij}=\overline p_{ij}$. Therefore, the extremum condition for the discrepancy can be written as
+\begin{equation}
+ \Delta=\Delta'+\Delta''=\Extr,
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+ \Delta'
+ &=\avg[\psi]{\avg[\Omega]{\widetilde\sigma_{ij}\widetilde\varepsilon_{ij}}
+                -\overline\sigma_{ij}\overline\varepsilon_{ij}},\\
+ \Delta''
+ &=\avg[\psi]{\overline\sigma_{ij}\overline\varepsilon_{ij}}
+   -\sigma_{ij}\varepsilon_{ij}.
+\end{aligned}
+\end{equation}
+Here $\avg[\Omega]{\cdot}$ denotes averaging over crystallographic orientation and $\avg[\psi]{\cdot}$ denotes averaging over the subelement weights. Equations~(14) and~(15) establish a relation between the scales in the representative volume. For a single-phase polycrystal, Eqs.~(5) and~(6) yield
+\begin{equation}
+ \Delta'
+ =\frac{-6(A-1)^2b\,\sigma_{ij}\varepsilon_{ij}}
+ {(3+2A+5Ab)\,[5+(2+3A)b]},
+ \qquad
+ b=\frac{B}{2C_{44}}.
+\end{equation}
+Using Eqs.~(10) and~(13), the second contribution becomes
+\begin{equation}
+ \Delta''
+ =\avg[\psi]{(\overline\sigma_{ij}-\sigma_{ij})
+              (\overline\varepsilon_{ij}-\varepsilon_{ij})}
+ =2Gm(1-m)\left(\avg[\psi]{\overline p}^{\,2}
+                         -\avg[\psi]{\overline p^{\,2}}\right).
+\end{equation}
+Equation~(17) shows that $\Delta''$ vanishes only in the limiting cases $m=0$ (uniform stress) and $m=1$ (uniform strain). The coefficient multiplying the variance-like term is largest at $m=0.5$, corresponding to $B=2G$. This case corresponds to elastically isotropic crystals, $A=1$. Under elastic isotropy, the discrepancy in Eq.~(16) vanishes and the extremum condition is governed by $\Delta''$.
+
+The discrepancy represents latent elastic energy remaining after unloading the macroelement. If $\dot p>0$ throughout the irreversibly deforming subset under a prescribed external action, the accumulated latent deformation energy depends only on the current mechanical state. Consequently, under fully active loading, the current value of $\Delta''$ is independent of the loading path. Assuming $\gamma$, $\theta$, and $m$ to remain constant, differentiation of Eq.~(17) gives
+\begin{equation}
+ \dd\Delta''
+ =4Gm(1-m)\left(p\dd p-\avg[\psi]{\overline p\dd\overline p}\right).
+\end{equation}
+Combining Eqs.~(10) and~(11), we obtain
+\begin{equation}
+ \dd\overline p
+ =\frac{\dd e+(m-a_0)\dd p}{m+a}.
+\end{equation}
+Substitution of Eq.~(19) into Eq.~(18), followed by integration, yields
+\begin{equation}
+ \Delta''=-\frac{m(1-m)}{m+a}U_p=\Extr,
+\end{equation}
+where
+\begin{equation}
+ U_p
+ =4G\left[\int p\dd e-\frac{a+a_0}{2}p^2\right]
+ =2\int p_{ij}\dd\sigma_{ij}-2G(a+a_0)p_{ij}p_{ij}.
+\end{equation}
+The quantity $U_p$ is determined directly from the experimental deformation curve of the polycrystal and the crystal hardening coefficients. Hence $U_p$ is held fixed when the extremum in Eq.~(20) is evaluated. The resulting condition is
+\begin{equation}
+ m=-a+\sqrt{a+a^2},
+ \qquad
+ B=2G\sqrt{\chi},
+ \qquad
+ a=\frac{1}{2G}\frac{\Delta\sigma}{\Delta p},
+ \qquad
+ \chi=\frac{1}{2G}\frac{\Delta\sigma}{\Delta\varepsilon}
+      =\frac{a}{1+a}.
+\end{equation}
+The increments $\Delta\sigma$ and $\Delta\varepsilon$ refer to the linear segment of crystal hardening. Equation~(22) was first obtained in Ref.~\cite{marina1997}. During multiple slip in a crystal with a cubic lattice, the hardening coefficient is approximately $\chi\sim4\times10^{-3}$.
+
+Now suppose that the particles forming a subelement are anisotropic, while their different crystallographic orientations allow the subelement to be treated as elastically isotropic to first order. Then Eqs.~(16) and~(20) may be used for $\Delta'$ and $\Delta''$ in Eq.~(14). Restricting attention to a single-phase polycrystal, Eq.~(20) can be written as
+\begin{equation}
+ % The source PDF prints F(b); F(A) is required by the definition below and by Eq. (24).
+ \Delta''
+ =-\frac{(1-\chi)bF(A)}{[b+F(A)]\,[b+\chi F(A)]}U_p,
+ \qquad
+ G(A)=C_{44}F(A),
+ \qquad
+ B=2C_{44}b,
+ \qquad
+ F(A)=\sqrt{\frac{2+3A}{(3+2A)A}}.
+\end{equation}
+Substituting Eqs.~(16) and~(23) into Eq.~(14) and differentiating with respect to the heterogeneity parameter $B$ gives
+\begin{equation}
+\begin{aligned}
+ \sqrt{\frac{U_p}{\sigma_{ij}\varepsilon_{ij}}}
+ &={}
+ \sqrt{
+ \frac{30(A-1)^2[3+2A-(2+3A)Ab^2]}
+ {(1-\chi)F(A)[b^2-\chi F(A)^2]}}
+ \\
+ &\quad\times
+ \frac{[F(A)+b][\chi F(A)+b]}
+ {[3+2A+5Ab][5+(2+3A)b]}.
+\end{aligned}
+\end{equation}
+The admissible interval of $b$ is
+\begin{equation}
+ \sqrt{\frac{(2+3A)\chi}{(3+2A)A}}
+ \leq b\leq
+ \sqrt{\frac{3+2A}{(2+3A)A}}.
+\end{equation}
+Equation~(24) relates the heterogeneity of stress and strain in a representative volume to both the physical properties of the material particles and the stress--strain curve of the polycrystal. Thus, calibration requires experimental information at both the crystal and polycrystal levels; data from either level alone are insufficient.
+
+To study the evolution of the heterogeneity parameter numerically, consider a characteristic polycrystal deformation curve. Equation~(22) was derived by assuming that the latent deformation energy in the actual process equals that in a hypothetical process loaded at the current value $B=2Gb=\text{const}$. The analytical form of the deformation curve follows from Eqs.~(10)--(13):
+\begin{equation}
+ e(p)=\tau_0+(a+a_0)p+\phi[h(b)p],
+ \qquad
+ h(b)=\frac{b+\chi}{(1+b)(1-\chi)}.
+\end{equation}
+The heterogeneity parameter $b=b(p)$ is assumed to vary with $p$ only at small irreversible strains. The left-hand side of Eq.~(24) is represented as
+\begin{equation}
+ M(p,b)
+ =\sqrt{\frac{U_p}{\sigma_{ij}\varepsilon_{ij}}}
+ =\frac{\sqrt{2\int_0^p p\,\dd\phi[h(b)p]}}{e(p)}.
+\end{equation}
+The quantity $M(p,b)$ characterizes the ratio of latent energy to the potential energy recovered during unloading. The integral is evaluated at the current value of the inhomogeneity parameter $b$, using
+\begin{equation}
+ \dd\phi=e_p\dd p.
+\end{equation}
+Thus, $e_p$ denotes $\dd\phi/\dd p$ along the current approximation; it is not the full derivative $\dd e/\dd p$ of Eq.~(26). In the first approximation, $M(p,b)$ is evaluated from the experimental curve and $b=b(p)$ is then obtained from Eqs.~(24) and~(28). When an analytical approximation to the experimental $e(p)$ curve is selected, the coefficient $h(b)=h(\sqrt\chi)$ is recommended for the term proportional to $p$. In a second approximation, the analytical function in Eq.~(26) uses the value of $h(b)$ obtained during the first step. Numerical studies indicate that three iterations are sufficient.
+
+\begin{thebibliography}{9}
+\bibitem{shevchenko1976}
+Yu.~N. Shevchenko and V.~Yu. Marina,
+``Structural model for a nonisothermal loading process,''
+\emph{Applied Mechanics}, no.~12, pp.~19--27, 1976.
+
+\bibitem{shevchenko1992}
+Yu.~N. Shevchenko, M.~E. Babeshko, and R.~G. Terekhov,
+\emph{Thermoviscoelastoplastic Processes of Complex Deformation of Structural Elements}.
+Kyiv: Naukova Dumka, 1992, 326~pp.
+
+\bibitem{marina2024}
+V.~Yu. Marina,
+``Three-level constitutive model describing behavior of polycrystals with monotonic and non-monotonic strain diagrams,''
+\emph{International Applied Mechanics}, vol.~60, no.~4, pp.~494--509, 2024.
+\href{https://doi.org/10.1007/s10778-024-01301-w}{doi:10.1007/s10778-024-01301-w}.
+
+\bibitem{marina1997}
+V.~Yu. Marina,
+``Equation of elastoplastic deformation of an object subject to proportional nonisothermal loading,''
+\emph{International Applied Mechanics}, vol.~33, no.~2, pp.~93--100, 1997.
+\end{thebibliography}
