@@ -1,0 +1,56 @@
+name: Apply Marina notation correction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-marina-notation-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Correct Eq. (28) notation and editorial record
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          report = Path('book/reports/01-marina.tex')
+          text = report.read_text(encoding='utf-8')
+          old = r'''\begin{equation}
+           \dd\phi=e_p\dd p.
+          \end{equation}
+          Thus, $e_p$ denotes $\dd\phi/\dd p$ along the current approximation; it is not the full derivative $\dd e/\dd p$ of Eq.~(26).'''
+          new = r'''\begin{equation}
+           \dd\phi=e_{,p}\dd p.
+          \end{equation}
+          Here $e_{,p}$ denotes the derivative of $e$ with respect to $p$; the comma is part of the differentiation notation.'''
+          if old not in text:
+              raise SystemExit('Expected Eq. (28) passage was not found')
+          report.write_text(text.replace(old, new), encoding='utf-8')
+
+          notes = Path('notes/formula-queries.md')
+          text = notes.read_text(encoding='utf-8')
+          old = '''4. **Equation (28): missing number restored; added derivative removed.** The PDF prose explicitly refers to Eq. (28), but the displayed relation `d\\phi=e_p\\,dp` is unnumbered. It has been numbered as Eq. (28). The pilot had added `e_p=de/dp`; this was removed because Eq. (26) implies that the full derivative of `e` also contains the linear term `a+a_0`. The text now states the mathematically consistent interpretation `e_p=d\\phi/dp` along the current approximation.'''
+          new = '''4. **Equation (28): missing number restored and comma derivative recovered.** The PDF prose explicitly refers to Eq. (28), although the displayed relation is unnumbered. The correct transcription is `d\\phi=e_{,p}\\,dp`: the comma in `e_{,p}` denotes differentiation of `e` with respect to `p`. The earlier pilot misread this as a separately subscripted quantity `e_p`; that reading and its accompanying explanation have been corrected.'''
+          if old not in text:
+              raise SystemExit('Expected Eq. (28) note was not found')
+          notes.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
+      - name: Commit correction
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add book/reports/01-marina.tex notes/formula-queries.md
+          git commit -m 'Correct comma-derivative notation in Marina Eq. 28'
+          git push
