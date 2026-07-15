@@ -16,6 +16,11 @@
 book/*.pdf
 pilot/**/*.pdf
 
+# Figure files decoded from repository-safe base64 assets
+*.generated.jpg
+*.generated.jpeg
+*.generated.png
+
 # Local source material; do not publish without permission
 source/original/*
 !source/original/.gitkeep
