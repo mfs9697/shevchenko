@@ -1,0 +1,30 @@
+% Edited conversion of source pp. 27--28.
+\ReportHeading
+  {Modeling the Complex Stress State of Thin-Walled Tubular Elements within Endochronic Plasticity}
+  {K.~Panin, O.~Koliada}
+  {Oles Honchar Dnipro National University, Dnipro, Ukraine}
+  {}
+
+Classical flow theories of plasticity with an explicit yield surface often encounter difficulties in describing complex nonproportional loading, rounded stress--strain curves, and unloading hysteresis. Endochronic theory, based on the concept of internal time, describes these phenomena without introducing an artificial yield criterion. This is important for estimating the service life of structures subjected to cyclic tension and torsion.
+
+The elastic--plastic deformation of a thin-walled metal tube under simultaneous axial force and torque is considered. Valanis-type constitutive equations relate the axial and shear stresses, $\sigma$ and $\tau$, to the axial and shear strains, $\varepsilon$ and $\gamma$, along different loading paths. The internal-time metric is introduced as an invariant measure of the trajectory in strain space.
+
+The memory kernel is represented by a sum of exponentials,
+\begin{equation}
+ \rho(z)=\sum_i C_i\exp(-\alpha_i z),
+\end{equation}
+which separates short-term memory associated with the transition to plasticity from long-term memory associated with hardening. This representation captures the smooth elastic-to-plastic transition observed in steels and aluminium alloys more naturally than a piecewise-linear approximation. Isotropic hardening is described by a function $f(\zeta)$ of the accumulated internal time $\zeta$.
+
+For a cylindrical specimen, the constitutive equations reduce to a system of first-order nonlinear differential equations for the axial and shear stresses:
+\begin{equation}
+ \dd\sigma=E\,\dd\varepsilon-\frac{\alpha\sigma}{f(\zeta)}\,\dd\zeta,
+ \qquad
+ \dd\tau=\mu\,\dd\gamma-\frac{\alpha\tau}{f(\zeta)}\,\dd\zeta.
+\end{equation}
+These equations describe, for example, strain drift under a constant stress component combined with cyclic variation of another component.
+
+A stepwise integration algorithm has been developed that does not require an iterative search for the yield surface. At each step, after the strain increments $\{\dd\varepsilon,\dd\gamma\}$ have been specified, the increment $\dd\zeta$ is evaluated and the new stress and internal-variable values are calculated.
+
+The parameters $C_i$ and $\alpha_i$ are identified from uniaxial tensile data and are subsequently used to predict torsional behaviour without additional calibration. The model reproduces the Bauschinger effect and cross-hardening when the loading path changes from tension to torsion. Comparison with experimental data for structural steels indicates improved accuracy in the low-plasticity range relative to classical theories.
+
+The endochronic formulation is therefore suitable for thin-walled elements in aviation and power engineering. Its continuous mathematical description of the elastic--plastic process improves the stability of numerical schemes for complex loading paths.
