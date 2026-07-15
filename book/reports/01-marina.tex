@@ -1,5 +1,5 @@
 % Pilot conversion of pp. 9--14 of the source proceedings PDF.
-% Equations were reconstructed from the rendered PDF and require author verification.
+% Equations were reconstructed from the rendered PDF; editorial decisions are documented in notes/formula-queries.md.
 \ReportHeading
   {A Hybrid Approach to Calibrating a Multiscale Constitutive Model}
   {V. Yu. Marina}
@@ -77,8 +77,8 @@ For a multiphase polycrystal with a cubic lattice in the reversible-deformation 
  \Delta
  =-\sigma_{ij}\varepsilon_{ij}\frac{B}{10G}
  \sum_k\left[
-  2\left(\frac{(B+2G)A_k}{2C_k+A_kB}\right)^2
- +3\left(\frac{B+2G}{2C_k+B}\right)^2-5
+  2\left(\frac{(B+2G)A_k}{2C_{44,k}+A_kB}\right)^2
+ +3\left(\frac{B+2G}{2C_{44,k}+B}\right)^2-5
  \right]c_k
  =\Extr,
 \end{equation}
@@ -137,7 +137,7 @@ The quantity characterizing the isotropic contribution is represented as~\cite{m
  \sqrt{\dot{\overline p}_{ij}\dot{\overline p}_{ij}}\dd\psi.
 \end{aligned}
 \end{equation}
-Here $\upsilon$ is the averaged inelastic volume change, $\varepsilon_T$ is the thermal volumetric strain of a body element, $p_0$ is the irreversible volume change caused by material damage, $\xi$ distinguishes the subelements, $s=\avg{\overline s}$ is their averaged isotropic hardening, and $\gamma$ is the averaged rate of irreversible strain. The functions $\tau_0(\gamma,\upsilon)$ and $\theta(\gamma,\upsilon)$ characterize the thermoviscoplastic properties of the material.
+Here $\upsilon$ is the averaged inelastic volume change, $\varepsilon_T$ is the thermal volumetric strain of a body element, $p_0$ is the irreversible volume change caused by material damage, $\xi$ distinguishes the subelements, $s=\avg{\overline s}$ is their averaged isotropic hardening, and $\gamma$ is the averaged rate of irreversible strain. In the averaging notation of Eq.~(9), $\psi$ is the subelement-weight coordinate and $\Psi'$ is the total weight, or normalizing measure, of the averaging set. The functions $\tau_0(\gamma,\upsilon)$ and $\theta(\gamma,\upsilon)$ characterize the thermoviscoplastic properties of the material.
 
 References~\cite{marina2024,marina1997} considered randomly oriented material particles without preferred directions. In this approximation, the subelements are elastically isotropic, and Eq.~(4), under proportional loading, becomes
 \begin{equation}
@@ -253,6 +253,7 @@ The increments $\Delta\sigma$ and $\Delta\varepsilon$ refer to the linear segmen
 
 Now suppose that the particles forming a subelement are anisotropic, while their different crystallographic orientations allow the subelement to be treated as elastically isotropic to first order. Then Eqs.~(16) and~(20) may be used for $\Delta'$ and $\Delta''$ in Eq.~(14). Restricting attention to a single-phase polycrystal, Eq.~(20) can be written as
 \begin{equation}
+ % The source PDF prints F(b); F(A) is required by the definition below and by Eq. (24).
  \Delta''
  =-\frac{(1-\chi)bF(A)}{[b+F(A)]\,[b+\chi F(A)]}U_p,
  \qquad
@@ -298,10 +299,9 @@ The heterogeneity parameter $b=b(p)$ is assumed to vary with $p$ only at small i
 \end{equation}
 The quantity $M(p,b)$ characterizes the ratio of latent energy to the potential energy recovered during unloading. The integral is evaluated at the current value of the inhomogeneity parameter $b$, using
 \begin{equation}
- \dd\phi=e_p\dd p,
- \qquad e_p=\frac{\dd e}{\dd p}.
+ \dd\phi=e_p\dd p.
 \end{equation}
-In the first approximation, $M(p,b)$ is evaluated from the experimental curve and $b=b(p)$ is then obtained from Eqs.~(24) and~(28). When an analytical approximation to the experimental $e(p)$ curve is selected, the coefficient $h(b)=h(\sqrt\chi)$ is recommended for the term proportional to $p$. In a second approximation, the analytical function in Eq.~(26) uses the value of $h(b)$ obtained during the first step. Numerical studies indicate that three iterations are sufficient.
+Thus, $e_p$ denotes $\dd\phi/\dd p$ along the current approximation; it is not the full derivative $\dd e/\dd p$ of Eq.~(26). In the first approximation, $M(p,b)$ is evaluated from the experimental curve and $b=b(p)$ is then obtained from Eqs.~(24) and~(28). When an analytical approximation to the experimental $e(p)$ curve is selected, the coefficient $h(b)=h(\sqrt\chi)$ is recommended for the term proportional to $p$. In a second approximation, the analytical function in Eq.~(26) uses the value of $h(b)$ obtained during the first step. Numerical studies indicate that three iterations are sufficient.
 
 \begin{thebibliography}{9}
 \bibitem{shevchenko1976}
