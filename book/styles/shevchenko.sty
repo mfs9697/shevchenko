@@ -14,11 +14,17 @@
 \RequirePackage{ragged2e}
 \RequirePackage{graphicx}
 \RequirePackage{wrapfig}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc,angles,quotes}
 
 \setlength{\parindent}{1.25em}
 \setlength{\parskip}{0pt}
 \allowdisplaybreaks
 \renewcommand{\theequation}{\arabic{equation}}
+\newcounter{report}
+\renewcommand{\theHequation}{\arabic{report}.\arabic{equation}}
 \setcounter{secnumdepth}{0}
 \emergencystretch=2em
 
@@ -28,6 +34,7 @@
 
 \newcommand{\ReportHeading}[4]{%
   \clearpage
+  \refstepcounter{report}%
   \setcounter{equation}{0}%
   \phantomsection
   \addcontentsline{toc}{section}{#1}%
@@ -37,7 +44,7 @@
     {\large\bfseries #2\par}
     \vspace{0.35em}
     {#3\par}
-    \if\relax\detokenize{#4}\relax\else\href{mailto:#4}{#4}\fi
+    \if\relax\detokenize{#4}\relax\else\href{mailto:#4}{\nolinkurl{#4}}\fi
   \end{center}
   \vspace{0.8em}
 }
